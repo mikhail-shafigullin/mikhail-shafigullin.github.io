@@ -26,5 +26,6 @@ async function redirectWithLocationReplaceFromPromiseWithAfterTimeout(){
         globalThis.location.replace("https://github.com/");
     });
     await setTimeout(function() {
+        console.log('check check');
     }, 2000);
 }
