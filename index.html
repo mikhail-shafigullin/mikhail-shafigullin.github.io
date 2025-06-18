@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <script src="https://unpkg.com/@strudel/web@1.0.3"></script>
+    <script src="./game-connector.js"></script>
     
     <head>
         <title>My Template</title>
@@ -15,12 +16,11 @@
             <button id="stop">stop</button>
         </div>
         <script>
-            initStrudel();
-            document.getElementById('play').addEventListener('click', () => note('<c a f e>(3,8)').jux(rev).play());
-            document.getElementById('stop').addEventListener('click', () => hush());
+            document.getElementById('play').addEventListener('click', () => strudel_music.default_music());
+            document.getElementById('stop').addEventListener('click', () => strudel_music.stop_music());
         </script>
         <script>
-            var engine = new Engine({"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":21824,"index.wasm":1626559},"focusCanvas":true,"gdextensionLibs":["libdd3d.web.template_debug.wasm32.wasm"]});
+            var engine = new Engine({"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":23536,"index.wasm":1626559},"focusCanvas":true,"gdextensionLibs":["libdd3d.web.template_debug.wasm32.wasm"]});
             engine.startGame();
         </script>
     </body>
