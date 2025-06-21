@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <script src="https://unpkg.com/@strudel/web@1.0.3"></script>
-    <script src="./game-connector.js"></script>
+    <script src="https://unpkg.com/@strudel/repl@1.2.0"></script>
+    <script type="module">
+        import { strudel_music, godotConnector, strudelEditor } from './game-connector.js';
+        
+        window.gameConnector = godotConnector;
+        window.strudelEditor = strudelEditor;
+        
+        document.getElementById('play').addEventListener('click', () => godotConnector.play());
+        document.getElementById('stop').addEventListener('click', () => godotConnector.stop());
+    </script>
+    
     
     <head>
         <title>My Template</title>
         <meta charset="UTF-8">
+        <style>
+            #strudel * {
+                pointer-events: none;
+                opacity: 0.8;
+                background-color: rgba(0, 0, 0, 0)!important;
+                color: red;
+            }
+        </style>
     </head>
     <body>
         
@@ -15,14 +32,12 @@
             <button id="play">play</button>
             <button id="stop">stop</button>
             <div> J - play, K - stop </div>
+            <div id="strudel"></div>
         </div>
         <script>
-            document.getElementById('play').addEventListener('click', () => strudel_music.default_music());
-            document.getElementById('stop').addEventListener('click', () => strudel_music.stop_music());
-        </script>
-        <script>
-            var engine = new Engine({"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":23536,"index.wasm":1626559},"focusCanvas":true,"gdextensionLibs":["libdd3d.web.template_debug.wasm32.wasm"]});
+            var engine = new Engine({"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":23568,"index.wasm":1626559},"focusCanvas":true,"gdextensionLibs":["libdd3d.web.template_debug.wasm32.wasm"]});
             engine.startGame();
         </script>
     </body>
 </html>
+
